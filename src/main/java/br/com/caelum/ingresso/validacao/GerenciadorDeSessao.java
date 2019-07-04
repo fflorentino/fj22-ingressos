@@ -50,13 +50,13 @@ public class GerenciadorDeSessao {
 		return true;
 	}
 	
-	private LocalDateTime getTerminoSessaoComDiaDeHoje(Sessao sessao) {
+	private LocalDateTime getInicioSessaoComDiaDeHoje(Sessao sessao) {
 		LocalDate hoje = LocalDate.now();
 		
 		return sessao.getHorario().atDate(hoje);
 	}
 
-	private LocalDateTime getInicioSessaoComDiaDeHoje(Sessao sessao) {
+	private LocalDateTime getTerminoSessaoComDiaDeHoje(Sessao sessao) {
 		LocalDateTime inicioSessaoNova = getInicioSessaoComDiaDeHoje(sessao);
 		
 		return inicioSessaoNova.plus(sessao.getFilme().getDuracao());
