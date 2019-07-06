@@ -31,7 +31,6 @@ public class DescontoTeste {
 	public void naoDeveConcederDescontoParaIngressoNormal() {
 		
 		Ingresso ingresso = new Ingresso(sessao, new SemDesconto());
-		
 		BigDecimal precoEsperado = new BigDecimal("32.50");
 		
 		Assert.assertEquals(precoEsperado, ingresso.getPreco());
@@ -42,7 +41,6 @@ public class DescontoTeste {
 	public void deveConcederDescontoParaIngressoDeClientesDeBanco() {
 		
 		Ingresso ingresso = new Ingresso(sessao, new DescontoParaBancos());
-		
 		BigDecimal precoEsperado = new BigDecimal("22.75");
 		
 		Assert.assertEquals(precoEsperado, ingresso.getPreco());
@@ -53,7 +51,6 @@ public class DescontoTeste {
 	public void deveConcederDescontoParaIngressoDeEstudando() {
 		
 		Ingresso ingresso = new Ingresso(sessao, new DescontoParaEstudantes());
-		
 		BigDecimal precoEsperado = new BigDecimal("16.25");
 		
 		Assert.assertEquals(precoEsperado, ingresso.getPreco());
